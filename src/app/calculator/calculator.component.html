@@ -1,0 +1,111 @@
+<div class="register">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 register-left">
+                <img src="https://i.ibb.co/KK38m8Y/cifrao.png" alt="cifrao" border="0">               
+                <h3>Bem-vindo!!!</h3>
+                <p>
+                    Utilize com sabedoria! Para dúvidas de utilização acesse:
+                    <small class="text-dark font-weight-bold"><i>lugar nenhum, não vou fazer manual, só me chama no WhatsApp mesmo!</i></small>
+                </p>
+            </div>
+            <div class="col-md-9 register-right">
+                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <span class="nav-link calc-tab cursor-pointer active" id="comum-tab" (click)="changeCalc(0)" data-toggle="tab" role="tab">Comum</span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link calc-tab cursor-blocked text-light" id="advanced-tab" data-toggle="tab" role="tab">Avançada</span>
+                    </li>
+                </ul>
+                <div class="tab-content" id="panel">
+                    <div class="tab-pane"  [ngClass]="{ 'active': !calc }" *ngIf="!calc" id="comum" role="tabpanel" aria-labelledby="comum-tab">
+                        <h3 class="register-heading">Calculadora Comum</h3>
+                        <form #f="ngForm" (ngSubmit)="normalCalc()">
+                            <div class="row register-form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input 
+                                        type="text" 
+                                        id="oddA" name="oddA"
+                                        class="form-control" 
+                                        [(ngModel)]="siteA.oddA" 
+                                        placeholder="Site A - Time A: 1.90 *" required/>
+                                    </div>
+                                    <div class="form-group">
+                                        <input 
+                                        type="text" 
+                                        id="oddB" name="oddB"
+                                        class="form-control" 
+                                        [(ngModel)]="siteA.oddB" 
+                                        placeholder="Site B - Time A: 1.90 *" required/>
+                                    </div>                                                                                           
+                                    <div class="form-group">
+                                        <input 
+                                        type="text" 
+                                        id="gastoMax" name="gastoMax"
+                                        class="form-control" 
+                                        [(ngModel)]="gastoMax" 
+                                        placeholder="Gasto máximo: 100 *" required/>
+                                    </div>                                                           
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-result" *ngIf="solucaoA.gastoA1">
+                                        <p class="result">
+                                            <strong class="result-title"> Efetue uma aposta de: </strong>
+                                            <strong class="result-body"><span>{{ solucaoA.gastoA1 }}</span> em <span>{{ siteA.oddA }}</span> e
+                                            <span>{{ solucaoA.gastoA2 }}</span> em <span>{{ siteA.oddB }}</span> <br></strong>
+                                        </p>
+                                    </div>
+                                    <button type="submit" class="btnRegister" [disabled]="f.invalid">Calcular</button>
+                                </div>                            
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade show" id="advanced" [ngClass]="{ 'active': calc }" *ngIf="calc" role="tabpanel" aria-labelledby="advanced-tab">
+                        <h3  class="register-heading">Calculadora Avançada</h3>
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Email *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                        <option>What is your Birthdate?</option>
+                                        <option>What is Your old Phone Number</option>
+                                        <option>What is your Pet Name?</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                                </div>
+                                <input type="submit" class="btnRegister"  value="Calcular"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
