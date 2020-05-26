@@ -5,12 +5,7 @@
                 <img src="https://i.ibb.co/KK38m8Y/cifrao.png" alt="cifrao" border="0">               
                 <h3>Bem-vindo!!!</h3>
                 <p>
-<<<<<<< HEAD
-                    Utilize com Brunoria! Para dúvidas de utilização acesse:
-                    Utilize com Natanaria! Para dúvidas de utilização acesse:
-=======
                     Utilize com sabedoria! Para dúvidas de utilização acesse:
->>>>>>> e8b0274a5926212a34a835ccdc8f3a1e7bff21c8
                     <small class="text-dark font-weight-bold"><i>lugar nenhum, não vou fazer manual, só me chama no WhatsApp mesmo!</i></small>
                 </p>
             </div>
@@ -25,7 +20,7 @@
                 </ul>
                 <div class="tab-content" id="panel">
                     <div class="tab-pane"  [ngClass]="{ 'active': !calc }" *ngIf="!calc" id="comum" role="tabpanel" aria-labelledby="comum-tab">
-                        <h3 class="register-heading">Calculadora Comum do Bruno</h3>
+                        <h3 class="register-heading">Calculadora Comum</h3>
                         <form #f="ngForm" (ngSubmit)="normalCalc()">
                             <div class="row register-form">
                                 <div class="col-md-6">
@@ -59,7 +54,14 @@
                                         <p class="result">
                                             <strong class="result-title"> Efetue uma aposta de: </strong>
                                             <strong class="result-body"><span>{{ solucaoA.gastoA1 }}</span> em <span>{{ siteA.oddA }}</span> e
-                                            <span>{{ solucaoA.gastoA2 }}</span> em <span>{{ siteA.oddB }}</span> <br></strong>
+                                            <span>{{ solucaoA.gastoA2 }}</span> em <span>{{ siteA.oddB }}</span></strong>
+
+                                            <strong class="result-title"> O lucro será de: </strong>
+                                            <strong class="result-body"><span>{{ lucro.reais }}</span> em <span>reais</span> e
+                                            <span>{{ lucro.porcentagem }}</span> em <span>porcentagem</span></strong>
+
+                                            <strong class="result-title"> Valor final recebido: </strong>
+                                            <strong class="result-body"><span>{{ valorRecebido }}</span></strong>
                                         </p>
                                     </div>
                                     <button type="submit" class="btnRegister" [disabled]="f.invalid">Calcular</button>

@@ -28,6 +28,11 @@ export class CalculatorComponent implements OnInit {
   };
 
   gastoMax: number;  
+  valorRecebido: number;
+  lucro: any = {
+    reais: null,
+    porcentagem: null,
+  };
   calc: number = 0;
 
   changeCalc(number) {
@@ -38,5 +43,8 @@ export class CalculatorComponent implements OnInit {
     const K1 = parseFloat(this.siteA.oddA)/parseFloat(this.siteA.oddB);  
     this.solucaoA.gastoA1 = (this.gastoMax/(K1 + 1)).toFixed(2);
     this.solucaoA.gastoA2 = (this.gastoMax - this.solucaoA.gastoA1).toFixed(2);  
+    this.valorRecebido = this.solucaoA.gastoA1*this.siteA.oddA;
+    this.lucro.reais = (this.valorRecebido - this.gastoMax).toFixed(2);
+    this.lucro.porcentagem = (this.valorRecebido/this.gastoMax).toFixed(2);
   }
 }
